@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="text-center">PokeApi</h1>
+</div>
+<br>
+<div class="d-flex justify-content-center">
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="inputPassword2" class="sr-only">Pokemon</label>
+      <input #pokemonName type="text" class="form-control" id="ide" placeholder="Pokemon">
+    </div>
+    <button (click)="catchPokemon(pokemonName.value)" type="button" class="btn btn-primary mb-2">Catch!!!</button>
+  </form>
+</div>
+<div *ngIf="catchedPokemons.length == 0">
+  <h3>No pokemon captured yet</h3>
+</div>
+<div *ngIf="catchedPokemons.length > 0">
+  <div class="align-middle" *ngFor="let one of catchedPokemons">
+    <div class="card align-center" style="width: 18rem;">
+      <img src="../../../assets/pokeBola.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">Pokemon ID: {{catchedPokemons.indexOf(one)+1}}</p>
+        <p class="card-text">Pokemon Name: {{one.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
